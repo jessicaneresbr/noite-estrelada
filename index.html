@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para você</title>
+<style>
+body{margin:0;font-family:Georgia,serif;background:#050514;color:#e8e8ff;height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden}
+.stars{position:fixed;inset:0;pointer-events:none}
+.star{position:absolute;background:white;border-radius:50%;animation:tw 2s infinite}
+@keyframes tw{0%,100%{opacity:.2}50%{opacity:1}}
+.card{position:relative;z-index:2;background:rgba(15,15,40,.9);border:1px solid #3a3a6a;padding:35px 25px;border-radius:20px;max-width:320px}
+button{background:linear-gradient(135deg,#4a4aff,#8a4aff);color:white;border:none;padding:12px 24px;border-radius:30px;margin:10px 5px;cursor:pointer;font-size:15px}
+.hidden{display:none}
+</style>
+</head>
+<body>
+<div class="stars" id="stars"></div>
+
+<div class="card" id="p1">
+<div style="font-size:70px">✉️</div>
+<h3>Oi, clica aqui</h3>
+<button onclick="ir(2)">abrir</button>
+</div>
+
+<div class="card hidden" id="p2">
+<p>Lembra do natal de 2021?<br>A gente jogando, de boa...</p>
+<button onclick="ir(3)">lembro</button>
+<button onclick="ir(3)">mais ou menos</button>
+</div>
+
+<div class="card hidden" id="p3">
+<p>Foi um dia bom, né?<br>Qual parte você mais curtiu?</p>
+<button onclick="ir(4)">os jogos</button>
+<button onclick="ir(4)">a companhia</button>
+<button onclick="ir(4)">tudo</button>
+</div>
+
+<div class="card hidden" id="p4">
+<p>Então... bora repetir?<br>Sem ser natal, sem desculpa.</p>
+<!-- TROQUE O LINK AQUI -->
+<iframe width="260" height="150" src="https://www.youtube.com/embed/SEU_LINK_AQUI" frameborder="0"></iframe><br>
+<button onclick="alert('Boa! Me chama depois 😌')">topo</button>
+<button onclick="alert('Tá bom, vou fingir que você clicou no topo 😂')">vou pensar</button>
+</div>
+
+<script>
+for(let i=0;i<80;i++){let s=document.createElement('div');s.className='star';s.style.width=s.style.height=Math.random()*3+'px';s.style.top=Math.random()*100+'%';s.style.left=Math.random()*100+'%';document.getElementById('stars').appendChild(s);}
+function ir(n){[1,2,3,4].forEach(x=>document.getElementById('p'+x).classList.add('hidden'));document.getElementById('p'+n).classList.remove('hidden');}
+</script>
+</body>
+</html>
